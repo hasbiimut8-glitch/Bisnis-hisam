@@ -368,7 +368,7 @@ const pricingData = [
             "Support 7 Hari"
         ],
         ctaText: "Pesan Sekarang",
-        ctaLink: "https://wa.me/628123456789?text=Halo,%20saya%20tertarik%20dengan%20paket%20Basic"
+        ctaLink: "https://wa.me/6288994227807?text=Halo,%20saya%20tertarik%20dengan%20paket%20Basic"
     },
     {
         name: "Pro",
@@ -389,7 +389,7 @@ const pricingData = [
             "Support 30 Hari"
         ],
         ctaText: "Pilih Pro",
-        ctaLink: "https://wa.me/628123456789?text=Halo,%20saya%20tertarik%20dengan%20paket%20Pro"
+        ctaLink: "https://wa.me/6288994227807?text=Halo,%20saya%20tertarik%20dengan%20paket%20Pro"
     },
     {
         name: "Custom",
@@ -411,7 +411,7 @@ const pricingData = [
             "Priority Support 24/7"
         ],
         ctaText: "Konsultasi Gratis",
-        ctaLink: "https://wa.me/628123456789?text=Halo,%20saya%20tertarik%20dengan%20paket%20Custom"
+        ctaLink: "https://wa.me/6288994227807?text=Halo,%20saya%20tertarik%20dengan%20paket%20Custom"
     }
 ];
 
