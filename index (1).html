@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hisam Tech - Jasa Pembuatan Website Profesional</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header dengan Dark Mode Toggle -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo-link" aria-label="Hisam Tech Home">
+    <img src="logo.png" alt="Hisam Tech" class="logo-image">
+    <span class="logo-text">Hisam Tech</span>
+</a>
+                <!-- Toggle Dark Mode -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Wujudkan Website Impian Anda</h2>
+                <p class="hero-description">
+                    Kami menyediakan jasa pembuatan website profesional, modern, dan responsif 
+                    untuk bisnis Anda. Dari landing page hingga aplikasi web kompleks.
+                </p>
+                <a href="#services" class="btn-cta">Pesan Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Layanan Kami</h2>
+            <p class="section-subtitle">Pilih paket yang sesuai dengan kebutuhan bisnis Anda</p>
+            
+            <div class="services-grid">
+                <!-- Service Card 1 -->
+                <div class="service-card">
+                    <div class="card-icon">🎨</div>
+                    <h3 class="card-title">Landing Page</h3>
+                    <p class="card-description">
+                        Website satu halaman yang elegan dan efektif untuk promosi produk atau jasa Anda.
+                    </p>
+                    <ul class="card-features">
+                        <li>✓ Desain Modern</li>
+                        <li>✓ Mobile Responsive</li>
+                        <li>✓ Fast Loading</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card">
+                    <div class="card-icon">⚡</div>
+                    <h3 class="card-title">Micro-App</h3>
+                    <p class="card-description">
+                        Aplikasi web sederhana untuk kebutuhan spesifik seperti kalkulator, dashboard, atau tools.
+                    </p>
+                    <ul class="card-features">
+                        <li>✓ Interactive UI</li>
+                        <li>✓ Custom Features</li>
+                        <li>✓ User Friendly</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card">
+                    <div class="card-icon">🖥️</div>
+                    <h3 class="card-title">Slicing Design</h3>
+                    <p class="card-description">
+                        Konversi desain Figma/XD Anda menjadi kode HTML, CSS, dan JavaScript yang clean.
+                    </p>
+                    <ul class="card-features">
+                        <li>✓ Pixel Perfect</li>
+                        <li>✓ Clean Code</li>
+                        <li>✓ SEO Friendly</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pricing" id="pricing">
+    <div class="container">
+        <h2 class="section-title">Paket Harga</h2>
+        <p class="section-subtitle">Pilih paket yang sesuai dengan kebutuhan dan budget Anda</p>
+        
+        <!-- Pricing cards akan di-render oleh JavaScript -->
+        <div class="pricing-grid" id="pricingGrid">
+            <!-- Cards akan muncul di sini via JS -->
+        </div>
+        
+        <div class="pricing-note">
+            <p>💡 <strong>Custom Quote:</strong> Butuh fitur spesial atau skala lebih besar? <a href="#faq">Hubungi kami</a> untuk penawaran khusus!</p>
+        </div>
+    </div>
+</section>
+<!-- Workflow Section (Tambahkan setelah Services, sebelum Footer) -->
+<section class="workflow" id="workflow">
+    <div class="container">
+        <h2 class="section-title">Cara Kerja</h2>
+        <p class="section-subtitle">Proses mudah dan transparan untuk mewujudkan website impian Anda</p>
+        
+        <div class="workflow-grid">
+            <!-- Step 1 -->
+            <div class="workflow-card">
+                <div class="workflow-number">1</div>
+                <div class="workflow-icon">💬</div>
+                <h3 class="workflow-title">Konsultasi</h3>
+                <p class="workflow-description">
+                    Diskusikan kebutuhan dan visi website Anda bersama kami secara gratis
+                </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="workflow-card">
+                <div class="workflow-number">2</div>
+                <div class="workflow-icon">⚙️</div>
+                <h3 class="workflow-title">Pengerjaan</h3>
+                <p class="workflow-description">
+                    Tim kami mulai mengembangkan website dengan update progres berkala
+                </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="workflow-card">
+                <div class="workflow-number">3</div>
+                <div class="workflow-icon">🚀</div>
+                <h3 class="workflow-title">Serah Terima</h3>
+                <p class="workflow-description">
+                    Website siap launching dengan panduan lengkap dan support penuh
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Floating WhatsApp Button (Tambahkan sebelum tag </body>) -->
+<a href="https://wa.me/6288994227807?text=Halo,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website" 
+   class="whatsapp-float" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   aria-label="Chat via WhatsApp">
+    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+</a>
+<!-- Testimonials Section -->
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <h2 class="section-title">Testimoni Klien</h2>
+        <p class="section-subtitle">Apa kata mereka yang sudah percaya pada layanan kami</p>
+        
+        <!-- Testimonial cards akan di-render oleh JavaScript -->
+        <div class="testimonials-grid" id="testimonialsGrid">
+            <!-- Cards akan muncul di sini via JS -->
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq" id="faq">
+    <div class="container">
+        <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+        <p class="section-subtitle">Temukan jawaban untuk pertanyaan umum Anda</p>
+        
+        <!-- FAQ accordion akan di-render oleh JavaScript -->
+        <div class="faq-container" id="faqContainer">
+            <!-- Accordion items akan muncul di sini via JS -->
+        </div>
+    </div>
+</section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Hisam Tech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

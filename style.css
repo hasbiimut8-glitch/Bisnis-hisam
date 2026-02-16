@@ -1,0 +1,1576 @@
+/* ========================================
+   CSS Variables untuk Tema yang Mudah Diubah
+   ======================================== */
+:root {
+    /* Light Mode Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6c757d;
+    --accent-color: #6366f1;
+    --accent-hover: #4f46e5;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --border-color: #e5e7eb;
+    
+    /* Spacing & Typography */
+    --container-padding: 20px;
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* Dark Mode Colors */
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --accent-color: #818cf8;
+    --accent-hover: #6366f1;
+    --card-bg: #1e293b;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --border-color: #334155;
+}
+
+/* ========================================
+   Reset & Base Styles
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+/* Container untuk Responsif */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* ========================================
+   Header & Navigation
+   ======================================== */
+.header {
+    background-color: var(--card-bg);
+    padding: 20px 0;
+    box-shadow: 0 2px 10px var(--card-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: var(--transition);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ========================================
+   Logo Styling (Updated)
+   ======================================== */
+
+/* Logo Container Link */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo-link:hover {
+    transform: scale(1.05);
+}
+
+/* Logo Image */
+.logo-image {
+    height: 52px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+/* Tablet */
+@media (min-width: 600px) {
+    .logo-image {
+        height: 70px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+    .logo-image {
+        height: 85px;
+    }
+}
+
+    /* Smooth transition saat tema berubah */
+}
+
+/* Logo Image Hover Effect */
+.logo-link:hover .logo-image {
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 10px rgba(99, 102, 241, 0.3));
+}
+
+/* Logo Text (Opsional - jika pakai kombinasi icon + text) */
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    transition: var(--transition);
+}
+
+.logo-link:hover .logo-text {
+    color: var(--accent-color);
+}
+
+/* ========================================
+   Dark Mode Logo Adjustment
+   ======================================== */
+
+/* 
+IMPORTANT: Pilih salah satu metode sesuai warna logo Anda!
+*/
+
+/* Method 1: Jika logo berwarna GELAP (hitam/dark blue) */
+[data-theme="dark"] .logo-image {
+    filter: brightness(0) invert(1);
+    /* Ubah logo gelap jadi putih */
+}
+
+/* Method 2: Jika logo berwarna TERANG (putih/light) */
+/* 
+[data-theme="dark"] .logo-image {
+    filter: brightness(1.2);
+}
+*/
+
+/* Method 3: Jika logo FULL COLOR dan ingin tetap colorful di dark mode */
+/*
+[data-theme="dark"] .logo-image {
+    filter: brightness(1.1) contrast(1.1);
+}
+*/
+
+/* Method 4: Ganti logo dengan versi dark mode (BEST METHOD) */
+/*
+[data-theme="dark"] .logo-image {
+    content: url('logo-dark.png');
+}
+*/
+
+/* ========================================
+   Mobile Optimization
+   ======================================== */
+@media (max-width: 768px) {
+    .logo-image {
+        height: 38px; /* Sedikit lebih kecil di mobile */
+    }
+    
+    .logo-text {
+        font-size: 1.3rem;
+    }
+    
+    /* Hide text on very small screens (optional) */
+    @media (max-width: 360px) {
+        .logo-text {
+            display: none;
+        }
+    }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+    .logo-image {
+        height: 50px; /* Lebih besar di desktop */
+    }
+    
+    .logo-text {
+        font-size: 1.6rem;
+    }
+}
+
+/* Dark Mode Toggle Button */
+.theme-toggle {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 50px;
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-color);
+}
+
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+/* Sembunyikan icon berdasarkan tema */
+[data-theme="light"] .moon-icon {
+    display: none;
+}
+
+[data-theme="dark"] .sun-icon {
+    display: none;
+}
+
+/* ========================================
+   Hero Section
+   ======================================== */
+.hero {
+    padding: 60px 0;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* Call to Action Button */
+.btn-cta {
+    display: inline-block;
+    background: var(--accent-color);
+    color: white;
+    padding: 14px 32px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    transition: var(--transition);
+}/* ========================================
+   CSS Variables
+   ======================================== */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6c757d;
+    --accent-color: #6366f1;
+    --accent-hover: #4f46e5;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --border-color: #e5e7eb;
+    --container-padding: 20px;
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --accent-color: #818cf8;
+    --accent-hover: #6366f1;
+    --card-bg: #1e293b;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --border-color: #334155;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 var(--container-padding);
+}
+
+/* ========================================
+   Header & Logo Premium
+   ======================================== */
+.header {
+    background: var(--card-bg);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 15px var(--card-shadow);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo-link:hover {
+    transform: scale(1.07);
+}
+
+.logo-image {
+    height: 52px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+@media (min-width: 600px) {
+    .logo-image { height: 70px; }
+}
+
+@media (min-width: 900px) {
+    .logo-image { height: 85px; }
+}
+
+.logo-text {
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+}
+
+.logo-link:hover .logo-text {
+    color: var(--accent-color);
+}
+
+[data-theme="dark"] .logo-image {
+    filter: brightness(1.1) contrast(1.1);
+}
+
+/* ========================================
+   Toggle
+   ======================================== */
+.theme-toggle {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 50px;
+    padding: 10px 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* ========================================
+   Hero Section Premium
+   ======================================== */
+.hero {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+    text-align: center;
+}
+
+.hero-content { max-width: 700px; margin: auto; }
+
+.hero-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    margin: 25px 0;
+    color: var(--text-secondary);
+}
+
+.btn-cta {
+    display: inline-block;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 16px 40px;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 30px rgba(99,102,241,.35);
+}
+
+.btn-cta:hover {
+    background: var(--accent-hover);
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   Services
+   ======================================== */
+.services { padding: 70px 0; }
+
+.section-title {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 800;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 50px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+@media (min-width: 768px) {
+    .services-grid { grid-template-columns: repeat(3,1fr); }
+}
+
+.service-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 35px;
+    box-shadow: 0 5px 20px var(--card-shadow);
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: var(--accent-color);
+}
+
+.card-icon { font-size: 3rem; margin-bottom: 15px; }
+
+.card-title { font-size: 1.4rem; font-weight: 700; }
+
+/* ========================================
+   Workflow
+   ======================================== */
+.workflow { padding: 70px 0; background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary)); }
+
+.workflow-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .workflow-grid { grid-template-columns: repeat(3,1fr); }
+}
+
+.workflow-card {
+    background: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--border-color);
+    text-align: center;
+}
+
+.workflow-card:hover { border-color: var(--accent-color); transform: translateY(-6px); }
+
+/* ========================================
+   Footer
+   ======================================== */
+.footer {
+    padding: 35px 0;
+    text-align: center;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    margin-top: 80px;
+}
+
+/* ========================================
+   WhatsApp Floating Button
+   ======================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg,#25D366,#128C7E);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 26px;
+    box-shadow: 0 6px 25px rgba(37,211,102,.45);
+}
+
+.whatsapp-float:hover { transform: scale(1.12); }
+
+
+.btn-cta:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* ========================================
+   Services Section
+   ======================================== */
+.services {
+    padding: 60px 0;
+    background-color: var(--bg-primary);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+/* Services Grid - Mobile First */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* Service Card */
+.service-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: 0 4px 15px var(--card-shadow);
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--card-shadow);
+    border-color: var(--accent-color);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.card-description {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.card-features {
+    list-style: none;
+    padding: 0;
+}
+
+.card-features li {
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+.footer {
+    background-color: var(--bg-secondary);
+    padding: 30px 0;
+    text-align: center;
+    color: var(--text-secondary);
+    margin-top: 60px;
+}
+/* ========================================
+   Glassmorphism Header on Scroll
+   ======================================== */
+.header.scrolled {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(229, 231, 235, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .header.scrolled {
+    background: rgba(30, 41, 59, 0.8);
+    border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   Enhanced Service Card Hover
+   ======================================== */
+.service-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.3);
+    border-color: var(--accent-color);
+}
+
+.service-card:hover::before {
+    opacity: 0.05;
+}
+
+.service-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .card-title {
+    color: var(--accent-color);
+}
+
+/* ========================================
+   Workflow Section
+   ======================================== */
+.workflow {
+    padding: 60px 0;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+.workflow-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    position: relative;
+    margin-top: 40px;
+}
+
+.workflow-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px var(--card-shadow);
+}
+
+.workflow-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+
+.workflow-number {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.workflow-icon {
+    font-size: 3rem;
+    margin: 20px 0;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.workflow-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.workflow-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* ========================================
+   Floating WhatsApp Button
+   ======================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 35px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-icon {
+    width: 32px;
+    height: 32px;
+    color: white;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 6px 35px rgba(37, 211, 102, 0.7);
+    }
+}
+
+/* Tooltip WhatsApp */
+.whatsapp-float::before {
+    content: 'Chat dengan Kami';
+    position: absolute;
+    right: 70px;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 4px 15px var(--card-shadow);
+    border: 1px solid var(--border-color);
+}
+
+.whatsapp-float:hover::before {
+    opacity: 1;
+}
+
+/* ========================================
+   Optimasi Mobile Touch Targets
+   ======================================== */
+@media (max-width: 768px) {
+    /* Pastikan touch target minimal 44x44px */
+    .theme-toggle {
+        min-width: 48px;
+        min-height: 48px;
+        padding: 10px 18px;
+    }
+    
+    .btn-cta {
+        min-height: 48px;
+        padding: 16px 36px;
+        font-size: 1rem;
+    }
+    
+    .whatsapp-float {
+        width: 56px;
+        height: 56px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    /* Hide tooltip on mobile */
+    .whatsapp-float::before {
+        display: none;
+    }
+    
+    /* Spacing antar cards lebih besar */
+    .services-grid {
+        gap: 24px;
+    }
+    
+    .workflow-grid {
+        gap: 28px;
+    }
+}
+
+/* ========================================
+   Desktop Workflow Layout
+   ======================================== */
+@media (min-width: 768px) {
+    .workflow-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    
+    /* Connector line between workflow cards */
+    .workflow-grid::before {
+        content: '';
+        position: absolute;
+        top: 60px;
+        left: 20%;
+        right: 20%;
+        height: 2px;
+        background: linear-gradient(90deg, 
+            transparent 0%, 
+            var(--accent-color) 20%, 
+            var(--accent-color) 80%, 
+            transparent 100%);
+        z-index: -1;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+    .workflow-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .workflow-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+/* ========================================
+   Testimonials Section
+   ======================================== */
+.testimonials {
+    padding: 60px 0;
+    background-color: var(--bg-primary);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.testimonial-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: 0 4px 15px var(--card-shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glassmorphism effect on hover */
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.3);
+    border-color: var(--accent-color);
+}
+
+.testimonial-card:hover::before {
+    opacity: 0.05;
+}
+
+/* Ensure content stays above background */
+.testimonial-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    object-fit: cover;
+    background: var(--bg-secondary);
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+}
+
+.testimonial-info {
+    flex: 1;
+}
+
+.testimonial-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.testimonial-role {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.testimonial-rating {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.star {
+    color: #fbbf24;
+    transition: transform 0.2s ease;
+}
+
+.testimonial-card:hover .star {
+    transform: scale(1.1);
+}
+
+.testimonial-text {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    font-style: italic;
+    position: relative;
+}
+
+.testimonial-text::before {
+    content: '"';
+    font-size: 3rem;
+    color: var(--accent-color);
+    opacity: 0.2;
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    font-family: Georgia, serif;
+}
+
+/* ========================================
+   FAQ Section
+   ======================================== */
+.faq {
+    padding: 60px 0;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 40px auto 0;
+}
+
+.faq-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: 0 2px 10px var(--card-shadow);
+}
+
+.faq-item:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.15);
+}
+
+.faq-question {
+    width: 100%;
+    padding: 20px 24px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: var(--transition);
+    position: relative;
+}
+
+.faq-question:hover {
+    color: var(--accent-color);
+}
+
+/* Active state */
+.faq-item.active .faq-question {
+    color: var(--accent-color);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.faq-question-text {
+    flex: 1;
+    padding-right: 10px;
+}
+
+.faq-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    color: var(--accent-color);
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 24px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 0 24px 20px 24px;
+}
+
+.faq-answer-text {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Plus/Minus Icon */
+.faq-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ========================================
+   Animations for Dynamic Content
+   ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.testimonial-card,
+.faq-item {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+/* Stagger animation delay */
+.testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+.testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+.testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+.testimonial-card:nth-child(4) { animation-delay: 0.4s; }
+
+.faq-item:nth-child(1) { animation-delay: 0.1s; }
+.faq-item:nth-child(2) { animation-delay: 0.15s; }
+.faq-item:nth-child(3) { animation-delay: 0.2s; }
+.faq-item:nth-child(4) { animation-delay: 0.25s; }
+.faq-item:nth-child(5) { animation-delay: 0.3s; }
+.faq-item:nth-child(6) { animation-delay: 0.35s; }
+
+/* ========================================
+   Responsive - Testimonials & FAQ
+   ======================================== */
+
+/* Tablet */
+@media (min-width: 600px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .testimonial-avatar {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .faq-question {
+        padding: 24px 28px;
+        font-size: 1.05rem;
+    }
+    
+    .faq-answer-text {
+        font-size: 1rem;
+    }
+}
+
+/* Touch target optimization for mobile */
+@media (max-width: 768px) {
+    .faq-question {
+        min-height: 48px;
+        padding: 18px 20px;
+    }
+    
+    .testimonials-grid {
+        gap: 20px;
+    }
+}
+/* ========================================
+   Pricing Section
+   ======================================== */
+.pricing {
+    padding: 60px 0;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.pricing-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 40px 30px;
+    box-shadow: 0 4px 15px var(--card-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Glassmorphism background effect */
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.pricing-card:hover::before {
+    opacity: 0.05;
+}
+
+/* Ensure content stays above background */
+.pricing-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover effect */
+.pricing-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 50px rgba(99, 102, 241, 0.25);
+    border-color: var(--accent-color);
+}
+
+/* Popular badge */
+.pricing-badge {
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    padding: 6px 45px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+    z-index: 2;
+}
+
+/* Popular card gets special treatment */
+.pricing-card.popular {
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
+    transform: scale(1.05);
+}
+
+.pricing-card.popular:hover {
+    transform: translateY(-10px) scale(1.08);
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.pricing-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.pricing-card:hover .pricing-icon {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.pricing-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.pricing-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.pricing-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 5px;
+}
+
+.pricing-currency {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.pricing-amount {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.pricing-period {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+    flex-grow: 1;
+}
+
+.pricing-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.feature-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+.pricing-cta {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    background: var(--accent-color);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: calc(var(--border-radius) - 2px);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    border: 2px solid transparent;
+}
+
+.pricing-cta:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
+}
+
+/* Outline button for non-popular cards */
+.pricing-card:not(.popular) .pricing-cta {
+    background: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+.pricing-card:not(.popular) .pricing-cta:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+.pricing-note {
+    text-align: center;
+    padding: 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    box-shadow: 0 2px 10px var(--card-shadow);
+}
+
+.pricing-note strong {
+    color: var(--text-primary);
+}
+
+.pricing-note a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.pricing-note a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   Pricing Animations
+   ======================================== */
+@keyframes priceSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pricing-card {
+    animation: priceSlideUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.pricing-card:nth-child(1) { animation-delay: 0.1s; }
+.pricing-card:nth-child(2) { animation-delay: 0.2s; }
+.pricing-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Popular card entrance animation */
+.pricing-card.popular {
+    animation: priceSlideUp 0.6s ease 0.2s forwards, popScale 0.4s ease 0.8s forwards;
+}
+
+@keyframes popScale {
+    0%, 100% { transform: scale(1.05); }
+    50% { transform: scale(1.08); }
+}
+
+/* ========================================
+   Responsive - Pricing
+   ======================================== */
+
+/* Tablet */
+@media (min-width: 600px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Make popular card span full width on tablet if it's in the middle */
+    .pricing-card.popular {
+        grid-column: 1 / -1;
+        max-width: 450px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+    .pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 35px;
+    }
+    
+    /* Popular card back to normal grid */
+    .pricing-card.popular {
+        grid-column: auto;
+        max-width: none;
+    }
+    
+    .pricing-amount {
+        font-size: 3.5rem;
+    }
+}
+
+/* Touch optimization for mobile */
+@media (max-width: 768px) {
+    .pricing-cta {
+        min-height: 48px;
+        padding: 18px 24px;
+    }
+    
+    .pricing-card {
+        padding: 35px 25px;
+    }
+    
+    .pricing-badge {
+        font-size: 0.7rem;
+        padding: 5px 40px;
+    }
+}
+/* ========================================
+   Responsive Design - Tablet & Desktop
+   ======================================== */
+
+/* Tablet (min-width: 600px) */
+@media (min-width: 600px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+/* Desktop (min-width: 900px) */
+@media (min-width: 900px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
